@@ -196,6 +196,7 @@ function selectOption()
 {
    console.log("~~Select an Action~~");
    console.log("[1] Create a to-do list ");
+   console.log("[2] Complete a to-do item ");
    console.log("[3] Remove Items from List ");
    console.log("[4] Exit To-Do List Application ");
    option = Number(prompt('> '));
