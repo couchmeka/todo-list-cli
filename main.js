@@ -126,12 +126,20 @@ while(option !==3)
    displayList();
 
    let newStatus = Number(prompt('> '));
+
+    while(isNaN(newStatus) || newStatus > status.length || newStatus < 1)
+     {
+   console.log("Please input a number that corresponds with an item in the list: ");
+   newStatus = Number(prompt('> '));
+     }
+
+
    status[newStatus-1]= true;
-   displayList()  
+     
    //complete an item 
    
 
-
+   displayList()
    //reprompt the user
    selectOption();
 
@@ -160,6 +168,7 @@ function displayList()
     if(toDoList.length === 0)
     {
         console.log("Your to-do list is empty.");
+        
     } else 
     {
         console.log(`You have ${toDoList.length} to-do item(s)`);
