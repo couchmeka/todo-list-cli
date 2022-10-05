@@ -105,11 +105,13 @@ while(option !==3)
 
     while(addItem.length ===0)
     {
-        console.log("Invalid: Input cannot be empty. Try Again. ")
-        addItem = prompt("> ");
+    console.log("Invalid: Input cannot be empty. Try Again. ")
+    addItem = prompt("> ");
     }
+
    toDoList.push(addItem);
    status.push(false);
+
 
    displayList();
 
@@ -129,8 +131,8 @@ while(option !==3)
 
     while(isNaN(newStatus) || newStatus > status.length || newStatus < 1)
      {
-   console.log("Please input a number that corresponds with an item in the list: ");
-   newStatus = Number(prompt('> '));
+     console.log("Please input a number that corresponds with an item in the list: ");
+     newStatus = Number(prompt('> '));
      }
 
 
@@ -162,6 +164,8 @@ function selectOption()
    console.log("[3] Exit To-Do List Application ");
    option = Number(prompt('> '));
 }
+
+
 
 function displayList()
 {
