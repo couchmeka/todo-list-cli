@@ -109,15 +109,18 @@ while(option !==4)
     addItem = prompt("> ");
     }
    // adding to do list item
+
    toDoList.push(addItem);
+
    //adding a status to the to do item array
+
    status.push(false);
 
-
+   //display array to the user using displayList function
    displayList();
 
 
-   //reprompt the user
+   //reprompt the user using the selectOption function
    selectOption();
    
    } else if (option === 2) 
@@ -138,16 +141,19 @@ while(option !==4)
      console.log("Please input a number that corresponds with an item in the list: ");
      newStatus = Number(prompt('> '));
      }
-     
-    if (status[newStatus-1]=== true){
+    
+     //checks current status and changes to opposite value (true or false)
+    if (status[newStatus-1]=== true)
+    {
         status[newStatus-1]= false;
     } else {
-   status[newStatus-1]= true}
+        status[newStatus-1]= true}
 
 
-
+    //displays list to user
    displayList()
-   //reprompt the user
+
+   //reprompt the user  
    selectOption();
 
 } else if (option === 3)
@@ -177,8 +183,10 @@ while(option !==4)
 
     //display new list to user
     displayList()
+
     //reprompt the user
     selectOption();
+
 } else
 { 
     console.log("invalid operation")
