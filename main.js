@@ -85,14 +85,14 @@ console.log("");
 console.log("~~Select an Action~~");
 console.log("[1] Create a to-do list ");
 console.log("[2] Complete a to-do item ");
-console.log("[3] Exit To-Do List Application ");
-
+console.log("[3] Remove Items from List ");
+console.log("[4] Exit To-Do List Application ");
 
 let option = Number(prompt('> '));
 let toDoList= [];
 let status = [];
 
-while(option !==3) 
+while(option !==4) 
 {
   if(option === 1) 
    { 
@@ -138,6 +138,7 @@ while(option !==3)
      console.log("Please input a number that corresponds with an item in the list: ");
      newStatus = Number(prompt('> '));
      }
+     
     if (status[newStatus-1]=== true){
         status[newStatus-1]= false;
     } else {
@@ -149,7 +150,36 @@ while(option !==3)
    //reprompt the user
    selectOption();
 
-} else  
+} else if (option === 3)
+{
+    // intro to delete an Item
+   console.log("~Completing To-Do Item~");
+   console.log("");
+   console.log(" which item would you like to remove? ");
+   displayList();
+
+   //prompt and variable for prompt for to do items.
+   let shortList = Number(prompt('> '));
+
+   //error checks what is used to delete
+   while(isNaN(shortList) || shortList < 0)
+   {
+   console.log("Please input a number that corresponds with an item in the list: ");
+   shortList = Number(prompt('> '));
+   }
+
+
+   //removes the item from the list
+   if (shortList > 0)
+    {
+        toDoList.splice(shortList-1, 1);
+    }
+
+    //display new list to user
+    displayList()
+    //reprompt the user
+    selectOption();
+} else
 { 
     console.log("invalid operation")
     selectOption();
@@ -166,8 +196,8 @@ function selectOption()
 {
    console.log("~~Select an Action~~");
    console.log("[1] Create a to-do list ");
-   console.log("[2] Complete a to-do item ");
-   console.log("[3] Exit To-Do List Application ");
+   console.log("[3] Remove Items from List ");
+   console.log("[4] Exit To-Do List Application ");
    option = Number(prompt('> '));
 }
 
