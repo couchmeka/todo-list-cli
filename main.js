@@ -100,16 +100,17 @@ while(option !==3)
    console.log("What is the item called?");
 
    //add to do item
+    let addItem = prompt("> ");
 
-   let addItem = prompt("> ");
-
+    // check if there is no entry for the to do item
     while(addItem.length ===0)
     {
     console.log("Invalid: Input cannot be empty. Try Again. ")
     addItem = prompt("> ");
     }
-
+   // adding to do list item
    toDoList.push(addItem);
+   //adding a status to the to do item array
    status.push(false);
 
 
@@ -119,42 +120,47 @@ while(option !==3)
    //reprompt the user
    selectOption();
    
-   } else if (option === 2)
+   } else if (option === 2) 
    {
-
+   
+    // intro to the completing to do items 
    console.log("~Completing To-Do Item~");
    console.log("");
-   console.log(" which item would you like to complete?");
+   console.log(" which item would you like to modify (targets can only be complete or incomplete)?");
    displayList();
 
+   //prompt and variable for prompt for to do items.
    let newStatus = Number(prompt('> '));
 
+   //check if incorrect input has been put in for complete items 
     while(isNaN(newStatus) || newStatus > status.length || newStatus < 1)
      {
      console.log("Please input a number that corresponds with an item in the list: ");
      newStatus = Number(prompt('> '));
      }
+    if (status[newStatus-1]=== true){
+        status[newStatus-1]= false;
+    } else {
+   status[newStatus-1]= true}
 
 
-   status[newStatus-1]= true;
-     
-   //complete an item 
-   
 
    displayList()
    //reprompt the user
    selectOption();
 
-  } else { 
-    
+} else  
+{ 
     console.log("invalid operation")
-    selectOption();}
+    selectOption();
 }
 
 //exiting the application
 console.log('~ Exiting To-do List Application ~');
 
 
+
+//homescreen of the to do list app
 
 function selectOption()
 {
@@ -166,18 +172,22 @@ function selectOption()
 }
 
 
+// list display options 
+
 
 function displayList()
 {
     if(toDoList.length === 0)
     {
         console.log("Your to-do list is empty.");
+        selectOption()
         
     } else 
     {
         console.log(`You have ${toDoList.length} to-do item(s)`);
     }
 
+    // marking status as true or false
 
     for(let i = 0; i < toDoList.length; i++)
     {
@@ -193,4 +203,5 @@ function displayList()
 
         console.log(` ${i+1}. ${statusValue} ${toDoList[i]}`); 
     }
+}
 }
